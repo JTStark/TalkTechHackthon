@@ -1,6 +1,6 @@
 from .busca_ingresso_rapido import search_event_by_date
 from .busca_ingresso_rapido import search_event_by_city
-
+from .busca_ingresso_rapido import search_event_by_category
 
 def event_handler(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Event handler response")
@@ -20,5 +20,11 @@ def events_on_handler(bot, update):
 def events_at_handler(bot, update):
 	city = update.message.text.split(' ', 1)
 	response = search_event_by_city(city[1])
+	bot.sendMessage(chat_id=update.message.chat_id, text=response[0]["title"] + '\n' + response[0]["event_url"])
+	bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')	
+
+def events_type_handler(bot, update):
+	category = update.message.text.split(' ', 1)
+	response = search_event_by_category(category[1])
 	bot.sendMessage(chat_id=update.message.chat_id, text=response[0]["title"] + '\n' + response[0]["event_url"])
 	bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')	

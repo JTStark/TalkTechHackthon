@@ -6,6 +6,7 @@ from .commands import event_handler
 from .commands import start_handler
 from .commands import events_on_handler
 from .commands import events_at_handler
+from .commands import events_type_handler
 
 class IngressoRapidoBot(object):
 
@@ -14,7 +15,8 @@ class IngressoRapidoBot(object):
         'event': event_handler,
         'start': start_handler,
 	   'eventsOn': events_on_handler,
-        'eventsAt': events_at_handler
+        'eventsAt': events_at_handler,
+        'eventsType': events_type_handler
     }
 
     def __init__(self, token):
