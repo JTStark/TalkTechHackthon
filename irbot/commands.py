@@ -60,8 +60,6 @@ def events_at_handler(bot, update):
     city = update.message.text.split(' ', 1)
     response = search_event_by_city(city[1])
     leng = len(response)
-    print response[0]
-    bot.sendMessage(chat_id=update.message.chat_id, text=response[0]['title'] + '\n' + response[0]['event_url'])
     for i in xrange(3):
         if i < leng:
 	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
