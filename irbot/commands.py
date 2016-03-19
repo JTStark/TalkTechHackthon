@@ -10,19 +10,24 @@ def start_handler(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Hi!")
 
 def search_handler(bot, update):
+    chat_id = update.message.chat_id
     param = update.message.text.split(' ', 1)
     param.pop(0)
-    #searchStr = ' '.join(param)
-    events = search_event_by_name(event=searchStr)
-    leng = len(events)
-    for i in xrange(3):
-        msg = events[i]['title'] + '\n' + events[i]['event_url']
-        bot.sendMessage(chat_id=update.message.chat_id, text=msg)
-        bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
-        # bot.sendPhoto(chat_id=update.message.chat_id, photo=event['image_url'])
+    if len(param) == 0:
+        msg = 'Digite o nome do evento ou local para buscar.'
+        bot.sendMessage(chat_id=chat_id, text=msg)
+    else:
+        events = search_event_by_name(event=searchStr)
+        leng = len(events)
+        for i in xrange(3):
+            if i < leng:
+                msg = events[i]['title'] + '\n' + events[i]['event_url']
+                bot.sendMessage(chat_id=update.message.chat_id, text=msg)
+                bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
+                # bot.sendPhoto(chat_id=update.message.chat_id, photo=event['image_url'])
         
-    if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text='Mais eventos? Use /more')
+        if leng > 3:
+            bot.sendMessage(chat_id=update.message.chat_id, text='Mais eventos? Use /more')
             
 def events_on_handler(bot, update):
     date = update.message.text.split()
