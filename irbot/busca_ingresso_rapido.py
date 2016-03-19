@@ -2,7 +2,7 @@ SITE_URL = 'https://www.ingressorapido.com.br/'
 
 mock_event = {
     'event_url': SITE_URL + 'Evento.aspx?ID=46865',
-    'image_url': SITE_URL + '/ImagensSistema/Eventos/eI047372thumb.jpg',
+    'image_url': SITE_URL + 'ImagensSistema/Eventos/eI047372thumb.jpg',
     'title': 'Titulo',
     'local': 'Lugar',
     'pages': 1
