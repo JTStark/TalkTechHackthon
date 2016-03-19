@@ -12,5 +12,6 @@ if __name__ == '__main__':
     # encerramos o programa sem lançar o bot
     if not token:
         sys.stderr.write('Erro: variável de ambiente IRBOT_TOKEN não está configurada.')
+        sys.exit(1)
 
     IngressoRapidoBot(token).run()
