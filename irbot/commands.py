@@ -60,25 +60,36 @@ def events_at_handler(bot, update):
     city = update.message.text.split(' ', 1)
     response = search_event_by_city(city[1])
     leng = len(response)
+    print response[0]
+    bot.sendMessage(chat_id=update.message.chat_id, text=response[0]['title'] + '\n' + response[0]['event_url'])
     for i in xrange(3):
         if i < leng:
 	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
 #    	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
-    
     if leng > 3:
         bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")	
 
 def events_type_handler(bot, update):
     category = update.message.text.split(' ', 1)
-    response = search_event_by_category(category[1])
+    categories = {
+        'Cinema' : "10",
+        'Classicos' : "28",
+        'Concerto' : "29",
+        'Danca' : "9",
+        'Especiais' : "25",
+        'Esporte' : "6",
+        'Festas' : "5",
+        'Futebol' : "40",
+        'Infantil e Familiares' : "18",
+        'Jazz' : "30",
+        'Show' : "2",
+        'Teatro' : "1"
+    }
+    response = search_event_by_category(categories[category[1]])
     leng = len(response)
     for i in xrange(3):
         if i < leng:
 	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
 #   	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
-    
     if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")	
-
-
-
+        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")

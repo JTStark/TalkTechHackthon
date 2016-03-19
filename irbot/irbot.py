@@ -16,11 +16,11 @@ class IngressoRapidoBot(object):
     commands = {
         'event': event_handler,
         'start': start_handler,
-	'eventsOn': events_on_handler,
+	   'eventsOn': events_on_handler,
         'eventsAt': events_at_handler,
         'eventsType': events_type_handler,
         'search': search_handler,
-	'eventsBetween': events_between_handler
+	   'eventsBetween': events_between_handler
 
     }
 
