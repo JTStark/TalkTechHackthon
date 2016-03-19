@@ -33,15 +33,15 @@ def parse_reponse(response):
     events = []
     for table in soup.find_all('table', class_='boxDotBorder'):
         event = {}
-        event['image_url'] = table.img.get('src')
-        event['event_url'] = SITE_URL + table.select('a')[1].get('href')
-        event['title'] = table.select('a')[1].text.encode('utf-8')
+        event['image_url'] = str(table.img.get('src'))
+        event['event_url'] = str(SITE_URL + table.select('a')[1].get('href'))
+        event['title'] = str(table.select('a')[1].text.encode('utf-8'))
         li = table.select('li')
         span = table.select('span')
         if(len(li) > 2):
-            event['local'] = li[1].text.encode('utf-8') + ' - ' + li[2].text.encode('utf-8')
+            event['local'] = str(li[1].text.encode('utf-8') + ' - ' + li[2].text.encode('utf-8'))
         else:
-            event['local'] = span[0].text.encode('utf-8')
+            event['local'] = str(span[0].text.encode('utf-8'))
         events.append(event)
 
     return events
