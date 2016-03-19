@@ -65,7 +65,7 @@ def events_on_handler(bot, update):
 #           bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
 
     if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /mais")
 
 #    bot.sendMessage(chat_id=update.message.chat_id, text="Coldplay Show, at Allianz Parque, on Fri, April 1st\nhttps://example.com")
 #    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
@@ -81,7 +81,7 @@ def events_between_handler(bot, update):
 #           bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
 
     if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /mais")
 
 def events_at_handler(bot, update):
     city = update.message.text.split(' ', 1)
@@ -92,7 +92,7 @@ def events_at_handler(bot, update):
 	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
 #    	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /mais")
 
 def events_type_handler(bot, update):
     category = update.message.text.split(' ', 1)
@@ -121,7 +121,7 @@ def render_events_by_category(bot, update, category):
 	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
 #   	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     if leng > 3:
-        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /more")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Mais eventos? Use /mais")
 
 
 def shows_handler(bot, update):

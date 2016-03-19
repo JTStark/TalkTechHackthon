@@ -1,4 +1,4 @@
 def take(list, n):
     l = min(len(list), n)
-    for _ in xrange(l):
+    for i in xrange(l):
         yield list[i]
