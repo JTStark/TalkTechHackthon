@@ -7,7 +7,13 @@ def event_handler(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Event handler response")
 
 def start_handler(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Hi!")
+    bot.sendMessage(chat_id=update.message.chat_id, text="Procure o melhor evento para você!\n")
+    bot.sendMessage(chat_id=update.message.chat_id, text="/eventosnodia Receba os eventos que ocorrerao em um determinado dia.")
+    bot.sendMessage(chat_id=update.message.chat_id, text="/eventosem Procure por eventos que ocorrerao em uma cidade.")
+    bot.sendMessage(chat_id=update.message.chat_id, text="/eventosdotipo Procure por eventos de acordo com seu estilo")
+    bot.sendMessage(chat_id=update.message.chat_id, text="/busca Busque eventos por palavra chave")
+    bot.sendMessage(chat_id=update.message.chat_id, text="/eventosnoperiodo Busque eventos em um determinado periodo")
+
 
 def search_handler(bot, update):
     chat_id = update.message.chat_id
