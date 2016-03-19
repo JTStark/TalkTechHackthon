@@ -48,7 +48,7 @@ def search_handler(bot, update):
         import sys
 
         sys.stderr.write(search_string + '\n')
-        events = search_event_by_name(event=search_string)
+        events = search_event_by_name(event_name=search_string)
         sys.stderr.write(str(events) + '\n')
         render_search_events_msg(events)
     except IndexError:
