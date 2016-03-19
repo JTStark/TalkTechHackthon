@@ -49,16 +49,17 @@ def parse_reponse2(response):
     soup = BeautifulSoup(response.text, 'html.parser')
     events = []
     eventTable = soup.find('table', id='cphBody_dlEventos')
-    for table in eventTable.find_all('table', class_='boxDotBorder'):
-        event = {}
-        event['image_url'] = str(table.img.get('src'))
-        event['event_url'] = str(SITE_URL + table.select('a')[1].get('href'))
-        event['title'] = str(table.select('a')[1].text.encode('utf-8'))
-        li = table.select('li')
-        span = table.select('span')
-        if(len(li) > 2):
-            event['local'] = str(li[1].text.encode('utf-8') + ' - ' + li[2].text.encode('utf-8'))
-        else:
-            event['local'] = str(span[0].text.encode('utf-8'))
-        events.append(event)
+    if eventTable is not None:
+        for table in eventTable.find_all('table', class_='boxDotBorder'):
+            event = {}
+            event['image_url'] = str(table.img.get('src'))
+            event['event_url'] = str(SITE_URL + table.select('a')[1].get('href'))
+            event['title'] = str(table.select('a')[1].text.encode('utf-8'))
+            li = table.select('li')
+            span = table.select('span')
+            if(len(li) > 2):
+                event['local'] = str(li[1].text.encode('utf-8') + ' - ' + li[2].text.encode('utf-8'))
+            else:
+                event['local'] = str(span[0].text.encode('utf-8'))
+                events.append(event)
     return events

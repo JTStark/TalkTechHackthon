@@ -49,11 +49,13 @@ def search_handler(bot, update):
 
         sys.stderr.write(search_string + '\n')
         events = search_event_by_name(event_name=search_string)
-        sys.stderr.write(str(events) + '\n')
-        #render_search_events_msg(events)
         if len(events) == 0:
+            sys.stderr.write('Hi\n')
             render_msg(bot, update, 'Nenhum evento com esse nome')
         else:
+            sys.stderr.write(str(events) + '\n')
+            #render_search_events_msg(events)
+            sys.stderr.write(not events)
             for i in xrange(3):
                 if i < len(events):
                     msg = events[i]['title'] + ', em ' + events[i]['local'] + '\n' + events[i]['event_url']
