@@ -111,7 +111,7 @@ def events_at_handler(bot, update):
 
 def events_type_handler(bot, update):
     category = update.message.text.split(' ', 1)
-    render_events_by_category(category[1])
+    render_events_by_category(bot, update, category[1])
 
 def render_events_by_category(bot, update, category):
     categories = {
