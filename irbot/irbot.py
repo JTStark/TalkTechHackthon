@@ -2,7 +2,6 @@
 
 from telegram import Updater
 
-from .commands import event_handler
 from .commands import start_handler
 from .commands import search_handler
 from .commands import events_on_handler
@@ -22,7 +21,6 @@ class IngressoRapidoBot(object):
 
     # Mapa de comandos -> funções de tratamento
     commands = {
-        'event': event_handler,
         'start': start_handler,
 	'eventosnodia': events_on_handler,
         'eventosem': events_at_handler,

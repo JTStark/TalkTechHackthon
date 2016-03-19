@@ -32,9 +32,6 @@ def render_search_events_msg(bot, update, events):
         render_msg(bot, update, 'Quer ver mais eventos? Use /mais')
 
 
-def event_handler(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Event handler response")
-
 def start_handler(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Procure o melhor evento para você!\n")
     bot.sendMessage(chat_id=update.message.chat_id, text="/eventosnodia Receba os eventos que ocorrerao em um determinado dia.")
