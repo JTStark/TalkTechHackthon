@@ -16,21 +16,21 @@ def more_handler(bot, update):
     if not MORE_DATA:
         render_msg(bot, update, "Ops, parece que não tenho mais resultados para te mostrar. Tente fazer outra busca.")
         return
-
     if LAST_COMMAND == 'search':
         render_search_events_msg(MORE_DATA)
 
-
+"""
 def render_search_events_msg(bot, update, events):
-    for event in take(events, 3):
-        msg = events['title'] + ', em ' + events['local'] + '\n' + events['event_url']
-        render_msg(bot, update, msg)
-
+    sys.stderr.write(str(len(events)) + '\n')
+    for i in xrange(3):
+        if i < len(events):
+            msg = events[i]['title'] + ', em ' + events[i]['local'] + '\n' + events[i]['event_url']
+            render_msg(bot, update, msg)
     if len(events) > 3:
         MORE_DATA = events[3:]
         LAST_COMMAND = 'search'
         render_msg(bot, update, 'Quer ver mais eventos? Use /mais')
-
+"""
 
 def start_handler(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Procure o melhor evento para você!\n")
@@ -50,7 +50,18 @@ def search_handler(bot, update):
         sys.stderr.write(search_string + '\n')
         events = search_event_by_name(event_name=search_string)
         sys.stderr.write(str(events) + '\n')
-        render_search_events_msg(events)
+        #render_search_events_msg(events)
+        if len(events) == 0:
+            render_msg(bot, update, 'Nenhum evento com esse nome')
+        else:
+            for i in xrange(3):
+                if i < len(events):
+                    msg = events[i]['title'] + ', em ' + events[i]['local'] + '\n' + events[i]['event_url']
+                    render_msg(bot, update, msg)
+            if len(events) > 3:
+                MORE_DATA = events[3:]
+                LAST_COMMAND = 'search'
+                render_msg(bot, update, 'Quer ver mais eventos? Use /mais')
     except IndexError:
         render_msg(bot, update, 'Preciso que você me diga o que está buscando!')
 
