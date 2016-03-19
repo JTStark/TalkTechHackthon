@@ -13,18 +13,13 @@ def search_handler(bot, update):
     param.pop(0)
     searchStr = ' '.join(param)
     events = search_event_by_name(event=searchStr)
-    counter = 0
-    for event in events:
-        counter = counter + 1
-        bot.sendMessage(chat_id=update.message.chat_id, text=event['title'])
+    for i in xrange(0, len(events)-1):
+        msg = events[i]['title'] + '\n' + events[i]['event_url']
+        bot.sendMessage(chat_id=update.message.chat_id, text=msg)
         # bot.sendPhoto(chat_id=update.message.chat_id, photo=event['image_url'])
-        bot.sendMessage(chat_id=update.message.chat_id, text=event['event_url'])
-        if counter == 3:
+        if i == 2:
             break
-            """
-            bot.sendMessage(chat_id=update.message.chat_id, text='Mais eventos?')
-            counter = 0
-            """
+          #  bot.sendMessage(chat_id=update.message.chat_id, text='Mais eventos?')
             
 def events_on_handler(bot, update):
     date = update.message.text.split()
