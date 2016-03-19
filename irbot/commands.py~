@@ -35,7 +35,7 @@ def events_on_handler(bot, update):
     leng = len(event)
     for i in xrange(3):
         if i < leng:
-            bot.sendMessage(chat_id=update.message.chat_id, text=event[i]["title"] + ', em ' + event[i]['local'] + '\n' + event[i]["event_url"])
+            bot.sendMessage(chat_id=update.message.chat_id, text=event[i]["title"] + ', em ' + events[i]['local'] + '\n' + event[i]["event_url"])
 #           bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     
     if leng > 3:
@@ -50,7 +50,7 @@ def events_between_handler(bot, update):
     leng = len(event)
     for i in xrange(3):
         if i < leng:
-            bot.sendMessage(chat_id=update.message.chat_id, text=event[i]["title"] + ', em ' + event[i]['local'] + '\n' + event[i]["event_url"])
+            bot.sendMessage(chat_id=update.message.chat_id, text=event[i]["title"] + ', em ' + events[i]['local'] + '\n' + event[i]["event_url"])
 #           bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     
     if leng > 3:
@@ -62,7 +62,8 @@ def events_at_handler(bot, update):
     leng = len(response)
     for i in xrange(3):
         if i < leng:
-	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
+	    print events[i]['local']
+	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + str(events[i]['local']) + '\n' + response[i]["event_url"])
 #    	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     
     if leng > 3:
@@ -74,7 +75,7 @@ def events_type_handler(bot, update):
     leng = len(response)
     for i in xrange(3):
         if i < leng:
-	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + response[i]['local'] + '\n' + response[i]["event_url"])
+	    bot.sendMessage(chat_id=update.message.chat_id, text=response[i]["title"] + ', em ' + events[i]['local'] + '\n' + response[i]["event_url"])
 #   	    bot.sendPhoto(chat_id=update.message.chat_id, photo='http://f.i.uol.com.br/folha/ilustrada/images/15324369.jpeg')
     
     if leng > 3:

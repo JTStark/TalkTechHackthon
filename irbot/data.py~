@@ -52,7 +52,7 @@ mock = [
         'city': 'Brasília',
         'state': 'DF',
         'url': 'https://www.ingressorapido.com.br/Evento.aspx?ID=4706',
-        'img': 'https://www.ingressorapido.com.br/ImagensSistema/Eventos/eI047066thumb.jpg',
+        'img': 'https://www.ingressorapido.com.br/ImagensSistema/Eventos/eI047066thumb.jpg'
         'start_date': '19032016',
         'end_date': '27032016'
     }
