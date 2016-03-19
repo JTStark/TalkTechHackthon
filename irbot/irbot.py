@@ -22,3 +22,4 @@ class IngressoRapidoBot(object):
 
     def run(self):
         self.updater.start_polling()
+        self.updater.idle()

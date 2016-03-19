@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import argparse
+import os
+import sys
+
+from irbot.irbot import IngressoRapidoBot
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Bot de Telegram para o IngressoRápido.')
+    parser.add_argument('--token', type=str, default='', help='Token de autenticação do bot')
+    args = parser.parse_args()
+
+    token = args.token or os.environ.get('IRBOT_TOKEN', '')
+
+    # Se o token não foi configurado como variável de ambiente,
+    # encerramos o programa sem lançar o bot
+    if not token:
+        sys.stderr.write('Erro: variável de ambiente IRBOT_TOKEN não está '
+                         'configurada nem foi fornecido token na linha de comando.' )
+        sys.exit(1)
+
+    IngressoRapidoBot(token).run()
