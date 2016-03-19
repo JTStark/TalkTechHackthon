@@ -53,3 +53,11 @@ ou
 ```
 irbot --token "<token>"
 ```
+
+## Desinstalando o bot
+
+Novamente, usando pip:
+
+```
+pip uninstall irbot
+```
