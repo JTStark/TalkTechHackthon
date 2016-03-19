@@ -44,5 +44,5 @@ Nosso bot lê seu token a partir de uma variável de ambiente chamada `IRBOT_TOK
 Para iniciar o bot:
 
 ```
-export IRBOT_TOKEN="<token>"; python start.py
+IRBOT_TOKEN="<token>" python start.py
 ```
