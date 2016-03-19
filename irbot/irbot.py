@@ -5,6 +5,7 @@ from telegram import Updater
 from .commands import event_handler
 from .commands import start_handler
 from .commands import events_on_handler
+from .commands import events_at_handler
 
 class IngressoRapidoBot(object):
 
@@ -12,7 +13,8 @@ class IngressoRapidoBot(object):
     commands = {
         'event': event_handler,
         'start': start_handler,
-	'eventsOn': events_on_handler
+	   'eventsOn': events_on_handler,
+        'eventsAt': events_at_handler
     }
 
     def __init__(self, token):
