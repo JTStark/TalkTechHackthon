@@ -2,7 +2,7 @@
 
 Repositório com nossa implementação do bot para o Hackaton.
 
-## Instalando as dependências
+## Instalando o bot
 
 É necessário ter o PIP instalado:
 
@@ -31,18 +31,25 @@ Ativamos o ambiente virtual:
 source venv/bin/activate
 ```
 
-Instalando as dependências:
+Instalando o bot:
 
 ```
-pip install -r requirements.txt
+pip install .
 ```
 
 ## Rodando o bot
 
-Nosso bot lê seu token a partir de uma variável de ambiente chamada `IRBOT_TOKEN`.
+Nosso bot lê seu token a partir de uma variável de ambiente chamada `IRBOT_TOKEN`
+ou fornecer o token como parâmetro para o script que inicia o bot.
 
 Para iniciar o bot:
 
 ```
-IRBOT_TOKEN="<token>" python start.py
+IRBOT_TOKEN="<token>" irbot
+```
+
+ou
+
+```
+irbot --token "<token>"
 ```
