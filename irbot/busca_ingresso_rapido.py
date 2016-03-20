@@ -61,5 +61,5 @@ def parse_reponse2(response):
                 event['local'] = str(li[1].text.encode('utf-8') + ' - ' + li[2].text.encode('utf-8'))
             else:
                 event['local'] = str(span[0].text.encode('utf-8'))
-                events.append(event)
+            events.append(event)
     return events
